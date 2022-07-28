@@ -1,4 +1,4 @@
-package com.kiktibia.ashesbot.domain
+package com.kiktibia.committedbot.domain
 
 case class Rank(id: Int, name: String, minLevel: Option[Int], maxLevel: Option[Int])
 
@@ -14,7 +14,7 @@ case object Rank {
   )
 
   def levelToRank(level: Int): Rank = {
-    if (level < 200) ranks.head
+    if (level < 600) ranks.head
     else if (level < 400) ranks(1)
     else if (level < 600) ranks(2)
     else if (level < 800) ranks(3)

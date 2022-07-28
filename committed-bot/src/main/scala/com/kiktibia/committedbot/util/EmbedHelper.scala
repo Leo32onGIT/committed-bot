@@ -1,4 +1,4 @@
-package com.kiktibia.ashesbot.util
+package com.kiktibia.committedbot.util
 
 import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder

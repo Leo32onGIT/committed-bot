@@ -1,6 +1,6 @@
-package com.kiktibia.ashesbot.command
+package com.kiktibia.committedbot.command
 
-import com.kiktibia.ashesbot.domain.{CharData, EventData}
+import com.kiktibia.committedbot.domain.{CharData, EventData}
 
 trait Command {
 

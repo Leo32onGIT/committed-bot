@@ -1,4 +1,4 @@
-package com.kiktibia.ashesbot.tibiadata
+package com.kiktibia.committedbot.tibiadata
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
@@ -15,7 +15,7 @@ class TibiaDataClient extends JsonSupport with StrictLogging {
   implicit private val system: ActorSystem = ActorSystem()
   implicit private val executionContext: ExecutionContextExecutor = system.dispatcher
 
-  private val guildUrl = "https://api.tibiadata.com/v3/guild/Ashes%20Remain"
+  private val guildUrl = "https://api.tibiadata.com/v3/guild/Committed"
 
   def getGuild: Future[GuildResponse] = {
     for {

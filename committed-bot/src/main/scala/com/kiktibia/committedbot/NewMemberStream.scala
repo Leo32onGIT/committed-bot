@@ -1,11 +1,11 @@
-package com.kiktibia.ashesbot
+package com.kiktibia.committedbot
 
 import akka.actor.Cancellable
 import akka.stream.ActorAttributes.supervisionStrategy
 import akka.stream.scaladsl.{Flow, RunnableGraph, Sink, Source}
 import akka.stream.{Attributes, Supervision}
-import com.kiktibia.ashesbot.tibiadata.{GuildResponse, Member, TibiaDataClient}
-import com.kiktibia.ashesbot.util.FileUtils
+import com.kiktibia.committedbot.tibiadata.{GuildResponse, Member, TibiaDataClient}
+import com.kiktibia.committedbot.util.FileUtils
 import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.TextChannel
@@ -47,7 +47,7 @@ class NewMemberStream(newMemberChannel: TextChannel) extends StrictLogging {
   private lazy val mentionNewMembersOnDiscord = Flow[(Set[String], List[Member])].mapAsync(1) { case (newMembers, guildMembers) =>
     if (newMembers.nonEmpty) {
       val newMemberMessages = newMembers.flatMap(m => guildMembers.find(_.name == m)).map {m =>
-        s"**${m.name}** (${m.level.toInt} ${m.vocation}) just joined Ashes Remain!"
+        s"**${m.name}** (${m.level.toInt} ${m.vocation}) just joined Committed!"
       }
       val embed = new EmbedBuilder().setTitle("New members").setDescription(newMemberMessages.mkString("\n")).setColor(16753451).build()
       newMemberChannel.sendMessageEmbeds(embed).queue()

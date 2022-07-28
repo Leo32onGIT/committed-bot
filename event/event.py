@@ -23,7 +23,7 @@ def main():
 
 
 def update_files(levels):
-    data_path = pathlib.Path.home() / 'data' / 'ashes-bot' / 'event'
+    data_path = pathlib.Path.home() / 'data' / 'committed-bot' / 'event'
     dat_files = [x for x in list(pathlib.Path(data_path).glob('*.dat'))]
     date_time = datetime.now().isoformat(' ', 'seconds')
 
@@ -64,13 +64,13 @@ def enough_time(previous_time, current_time):
 
 
 def get_data():
-    world_url = 'https://api.tibiadata.com/v3/world/Nefera'
-    guild_url = 'https://api.tibiadata.com/v3/guild/Ashes%20Remain'
+    world_url = 'https://api.tibiadata.com/v3/world/Marbera'
+    guild_url = 'https://api.tibiadata.com/v3/guild/Committed'
 
     world_json = requests.get(world_url).json()
     guild_json = requests.get(guild_url).json()
 
-    tracked_ranks = ['Incinerate', 'Phoenix', 'Hellbringer', 'Hellblaze', 'Firestorm', 'Wildfire', 'Flame']
+    tracked_ranks = ['Night%20King', 'Valyrian', 'Ironborne', 'Faceless', 'Night%20Raider']
 
     try:
         all_guild_chars = guild_json['guilds']['guild']['members']

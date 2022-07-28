@@ -1,14 +1,14 @@
-package com.kiktibia.ashesbot.util
+package com.kiktibia.committedbot.util
 
-import com.kiktibia.ashesbot.Config
-import com.kiktibia.ashesbot.domain.EventData
+import com.kiktibia.committedbot.Config
+import com.kiktibia.committedbot.domain.EventData
 
 import java.io.{BufferedWriter, File, FileWriter}
 import scala.io.Source
 
 object FileUtils {
 
-  private val membersFile = new File(s"${Config.dataDir}/members/ashes-remain.dat")
+  private val membersFile = new File(s"${Config.dataDir}/members/committed.dat")
   private val eventDir = new File(s"${Config.dataDir}/event")
 
   def getMembers: List[String] = {

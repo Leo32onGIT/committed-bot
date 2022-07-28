@@ -1,4 +1,4 @@
-package com.kiktibia.ashesbot.tibiadata
+package com.kiktibia.committedbot.tibiadata
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import org.apache.commons.text.StringEscapeUtils

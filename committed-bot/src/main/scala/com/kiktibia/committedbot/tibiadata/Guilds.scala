@@ -1,4 +1,4 @@
-package com.kiktibia.ashesbot.tibiadata
+package com.kiktibia.committedbot.tibiadata
 
 case class Guildhall(
                       name: String,

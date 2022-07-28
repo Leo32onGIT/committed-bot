@@ -1,8 +1,8 @@
-package com.kiktibia.ashesbot.command
+package com.kiktibia.committedbot.command
 
-import com.kiktibia.ashesbot.domain.Rank.ranks
-import com.kiktibia.ashesbot.domain.{CharData, EventData, Rank}
-import com.kiktibia.ashesbot.util.{EmbedHelper, FileUtils}
+import com.kiktibia.committedbot.domain.Rank.ranks
+import com.kiktibia.committedbot.domain.{CharData, EventData, Rank}
+import com.kiktibia.committedbot.util.{EmbedHelper, FileUtils}
 import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed

@@ -1,4 +1,4 @@
-package com.kiktibia.ashesbot.domain
+package com.kiktibia.committedbot.domain
 
 import java.time.{LocalDateTime, ZoneOffset, ZonedDateTime}
 import java.time.format.DateTimeFormatter

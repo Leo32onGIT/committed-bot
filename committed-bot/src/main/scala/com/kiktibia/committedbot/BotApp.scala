@@ -1,7 +1,7 @@
-package com.kiktibia.ashesbot
+package com.kiktibia.committedbot
 
 import akka.actor.ActorSystem
-import com.kiktibia.ashesbot.command.{EventCommand, RankupsCommand, WinnersCommand}
+import com.kiktibia.committedbot.command.{EventCommand, RankupsCommand, WinnersCommand}
 import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.entities.Guild

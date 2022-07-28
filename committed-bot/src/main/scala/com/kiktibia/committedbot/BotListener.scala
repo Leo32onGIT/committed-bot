@@ -1,6 +1,6 @@
-package com.kiktibia.ashesbot
+package com.kiktibia.committedbot
 
-import com.kiktibia.ashesbot.command.{EventCommand, RankupsCommand, WinnersCommand}
+import com.kiktibia.committedbot.command.{EventCommand, RankupsCommand, WinnersCommand}
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 
