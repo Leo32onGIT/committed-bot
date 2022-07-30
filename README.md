@@ -30,6 +30,5 @@ docker run --rm -d --env-file prod.env -v $DATA_DIR/data/committed-bot:$DATA_DIR
 ```
 5. Run the event update loop:
 ```
-cd event
-while true; do ./event.py ; sleep 60; done
+while true; do ./event/event.py ; sleep 60; done
 ```
