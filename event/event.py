@@ -73,10 +73,10 @@ def get_data():
     # tracked_ranks = ['Night%20King', 'Valyrian', 'Ironborne', 'Faceless', 'Night%20Raider']
 
     #try:
-        all_guild_chars = guild_json['guilds']['guild']['members']
+    all_guild_chars = guild_json['guilds']['guild']['members']
         #guild_chars = [g for g in all_guild_chars if g['rank'] in tracked_ranks]
     #except:
-        #guild_chars = []
+    	#guild_chars = []
     world_chars = world_json['worlds']['world'].get('online_players', [])
 
     html_unescape(all_guild_chars)
