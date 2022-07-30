@@ -23,7 +23,7 @@ def main():
 
 
 def update_files(levels):
-    data_path = pathlib.Path.home() / 'data' / 'committed-bot' / 'event'
+    data_path = pathlib.Path('/home') / 'data' / 'committed-bot' / 'event'
     dat_files = [x for x in list(pathlib.Path(data_path).glob('*.dat'))]
     date_time = datetime.now().isoformat(' ', 'seconds')
 
