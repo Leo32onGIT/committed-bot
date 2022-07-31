@@ -5,8 +5,8 @@ case class Rank(id: Int, name: String, minLevel: Option[Int], maxLevel: Option[I
 case object Rank {
 
   val ranks: List[Rank] = List(
-    Rank(1, "Night%20Walker", None, Some(199)),
-    Rank(2, "Night%20Raider", Some(200), Some(399)),
+    Rank(1, "Night Walker", None, Some(199)),
+    Rank(2, "Night Raider", Some(200), Some(399)),
     Rank(3, "Faceless", Some(400), Some(599)),
     Rank(4, "Ironborne", Some(600), Some(799)),
     Rank(5, "Valyrian", Some(800), Some(999)),
