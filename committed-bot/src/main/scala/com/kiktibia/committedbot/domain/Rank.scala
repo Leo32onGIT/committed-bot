@@ -5,12 +5,12 @@ case class Rank(id: Int, name: String, minLevel: Option[Int], maxLevel: Option[I
 case object Rank {
 
   val ranks: List[Rank] = List(
-    Rank(1, "Flame", None, Some(199)),
-    Rank(2, "Wildfire", Some(200), Some(399)),
-    Rank(3, "Firestorm", Some(400), Some(599)),
-    Rank(4, "Hellblaze", Some(600), Some(799)),
-    Rank(5, "Hellbringer", Some(800), Some(999)),
-    Rank(6, "Phoenix", Some(1000), None),
+    Rank(1, "Night%20Walker", None, Some(199)),
+    Rank(2, "Night%20Raider", Some(200), Some(399)),
+    Rank(3, "Faceless", Some(400), Some(599)),
+    Rank(4, "Ironborne", Some(600), Some(799)),
+    Rank(5, "Valyrian", Some(800), Some(999)),
+    Rank(6, "Stormborn", Some(1000), None),
   )
 
   def levelToRank(level: Int): Rank = {
