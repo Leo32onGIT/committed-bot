@@ -28,8 +28,4 @@ object BotApp extends App with StrictLogging {
   private val commands = List(EventCommand.command, WinnersCommand.command, RankupsCommand.command)
   guild.updateCommands().addCommands(commands.asJava).complete()
 
-  private val newMemberChannel = guild.getTextChannelById(Config.newMemberChannelId)
-  private val newMemberStream = new NewMemberStream(newMemberChannel)
-  newMemberStream.stream.run()
-
 }
