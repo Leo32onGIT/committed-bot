@@ -1,7 +1,7 @@
 package com.kiktibia.committedbot
 
 import akka.actor.ActorSystem
-import com.kiktibia.committedbot.command.{EventCommand, RankupsCommand, WinnersCommand}
+import com.kiktibia.committedbot.command.{EventCommand, RankupsCommand}
 import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.entities.Guild
@@ -25,7 +25,7 @@ object BotApp extends App with StrictLogging {
 //  guild.retrieveCommands().map { commands =>
 //    commands.forEach(c => guild.deleteCommandById(c.getId).queue())
 //  }.queue()
-  private val commands = List(EventCommand.command, WinnersCommand.command, RankupsCommand.command)
+  private val commands = List(EventCommand.command, RankupsCommand.command)
   guild.updateCommands().addCommands(commands.asJava).complete()
 
 }

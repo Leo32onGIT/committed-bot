@@ -1,6 +1,6 @@
 package com.kiktibia.committedbot
 
-import com.kiktibia.committedbot.command.{EventCommand, RankupsCommand, WinnersCommand}
+import com.kiktibia.committedbot.command.{EventCommand, RankupsCommand}
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 
@@ -10,8 +10,6 @@ class BotListener extends ListenerAdapter {
     event.getName match {
       case "event" =>
         handleEvent(event)
-      case "winners" =>
-        handleWinners(event)
       case "rankups" =>
         handleRankups(event)
       case _ =>
@@ -20,11 +18,6 @@ class BotListener extends ListenerAdapter {
 
   private def handleEvent(event: SlashCommandInteractionEvent): Unit = {
     val embed = EventCommand.handleEvent(event)
-    event.replyEmbeds(embed).queue()
-  }
-
-  private def handleWinners(event: SlashCommandInteractionEvent): Unit = {
-    val embed = WinnersCommand.handleEvent()
     event.replyEmbeds(embed).queue()
   }
 
