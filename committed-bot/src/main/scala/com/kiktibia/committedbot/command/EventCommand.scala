@@ -59,9 +59,9 @@ object EventCommand extends StrictLogging with Command {
     }
 		rank match {
 			case "Night Walker" =>
-    		emoji = "<a:Rotworm_1x:1003487298526126150>%20"
+    		emoji = "<a:Rotworm_1x:1003487298526126150> "
 			case "Night Raider" =>
-				emoji = "<a:luckydragon:1003487247187841106>%20"
+				emoji = "<a:luckydragon:1003487247187841106> "
 			case "Faceless" =>
 				emoji = "<a:noxiousripptor:1003487284642983966>"
 			case "Ironborne" =>
