@@ -7,7 +7,5 @@ object Config {
 
   val token: String = root.getString("token")
   val guildId: String = root.getString("guild-id")
-  val newMemberChannelId: String = root.getString("new-member-channel-id")
-
   val dataDir: String = root.getString("data-dir")
 }
