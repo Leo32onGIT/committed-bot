@@ -34,7 +34,7 @@ object EventCommand extends StrictLogging with Command {
     val embed = new EmbedBuilder()
 
 		// attempt to cycle through embed colors
-		var index = 0
+		var index: Int = 0
 		val embedColorList = List(16711680, 16744192, 16776960, 65280, 255, 9699539)
 		var embedColor = embedColorList(index)
 
