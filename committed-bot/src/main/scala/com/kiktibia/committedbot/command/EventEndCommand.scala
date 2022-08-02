@@ -47,7 +47,7 @@ object EventEndCommand extends StrictLogging with Command {
     embed.build()
 
 		// start new event
-		Files.write(Paths.get("/home/data/committed-bot/event/0.dat"), "file contents".getBytes(StandardCharsets.UTF_8))
+		Files.write(Paths.get("/home/data/committed-bot/event/0.dat"), "".getBytes())
   }
 
 }
