@@ -18,8 +18,8 @@ object EventCommand extends StrictLogging with Command {
   val command: SlashCommandData = Commands.slash("event", "get info of event")
     .addOptions(new OptionData(OptionType.STRING, "rank", "The rank to show")
       .addChoices(ranksAsChoices()))
-			
-	val circular = Iterator.continually(List(16711680, 16744192, 16776960, 65280, 255, 9699539)).flatten
+
+	val circular = Iterator.continually(List(11209740, 12536331, 13617937, 1617927, 139939, 9699539)).flatten
 
   def handleEvent(event: SlashCommandInteractionEvent): MessageEmbed = {
     logger.info("event command called")
@@ -38,7 +38,7 @@ object EventCommand extends StrictLogging with Command {
 		// attempt to cycle through embed colors
 		val embedColor = circular.next()
 
-    embed.setTitle("EXP Event Rankings").setColor(embedColor)
+    embed.setTitle("Leaderboards").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
         addRankFieldToEmbed(groupedCharData, embed, rank, None)
@@ -65,9 +65,9 @@ object EventCommand extends StrictLogging with Command {
     }
 		rank match {
 			case "Night Walker" =>
-    		emoji = "<a:Rotworm_1x:1003487298526126150> "
+    		emoji = "<a:Rotworm_1x:1003487298526126150>"
 			case "Night Raider" =>
-				emoji = "<a:luckydragon:1003487247187841106> "
+				emoji = "<a:luckydragon:1003487247187841106>"
 			case "Faceless" =>
 				emoji = "<a:noxiousripptor:1003487284642983966>"
 			case "Ironborne" =>
@@ -77,7 +77,7 @@ object EventCommand extends StrictLogging with Command {
 			case "Stormborn" =>
 				emoji = "<a:morshabaal:1003487272043302974>"
 		}
-		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldValue, false)
+		EmbedHelper.addMultiFields(embed, s"$rank $emoji", fieldValue, false)
 	}
 
   private def ranksAsChoices() = {
