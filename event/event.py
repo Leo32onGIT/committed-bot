@@ -17,9 +17,10 @@ def main():
         level = get_level(char, world_chars)
         levels.append({'name': char['name'], 'level': level})
 
-    update_files(levels)
-
-    print('done')
+	try
+    	update_files(levels)
+	except:
+		print("file could not be accessed.")
 
 
 def update_files(levels):
