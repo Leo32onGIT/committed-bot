@@ -7,6 +7,7 @@ import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.interactions.commands.build.{Commands, SlashCommandData}
+import java.nio.file.{Paths, Files}
 
 object EventEndCommand extends StrictLogging with Command {
 
@@ -45,7 +46,7 @@ object EventEndCommand extends StrictLogging with Command {
     embed.build()
 
 		// start new event
-		Files.write(Paths.get("/home/data/committed-bot/event/0.dat"), "".getBytes())
+		Files.write(Paths.get("/home/data/committed-bot/event/0.dat"), "".getBytes());
   }
 
 }
