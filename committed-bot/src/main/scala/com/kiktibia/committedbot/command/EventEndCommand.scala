@@ -45,8 +45,8 @@ object EventEndCommand extends StrictLogging with Command {
     embed.build()
 
 		// start new event
-		val eventData = FileUtils.getEventData(None)
-		eventData truncate 0
+		val clearData = FileUtils.getEventData(None)
+		clearData truncate 0
   }
 
 }
