@@ -18,6 +18,8 @@ object EventCommand extends StrictLogging with Command {
   val command: SlashCommandData = Commands.slash("event", "get info of event")
     .addOptions(new OptionData(OptionType.STRING, "rank", "The rank to show")
       .addChoices(ranksAsChoices()))
+			
+	val circular = Iterator.continually(List(16711680, 16744192, 16776960, 65280, 255, 9699539)).flatten
 
   def handleEvent(event: SlashCommandInteractionEvent): MessageEmbed = {
     logger.info("event command called")
