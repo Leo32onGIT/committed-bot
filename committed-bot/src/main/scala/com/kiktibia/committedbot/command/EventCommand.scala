@@ -38,7 +38,7 @@ object EventCommand extends StrictLogging with Command {
 		// attempt to cycle through embed colors
 		val embedColor = circular.next()
 
-    embed.setTitle("Leaderboards").setColor(embedColor)
+    embed.setTitle("Leaderboards", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Committed").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
         addRankFieldToEmbed(groupedCharData, embed, rank, None)
