@@ -46,7 +46,9 @@ object EventEndCommand extends StrictLogging with Command {
     embed.build()
 
 		// start new event
-		Files.write(Paths.get("/home/data/committed-bot/event/0.dat"), "".getBytes());
+		val eventWriter = new BufferedWriter(new FileWriter("/home/data/committed-bot/event/0.dat", true))
+		eventWriter.write("")
+		eventWriter.close()
   }
 
 }
