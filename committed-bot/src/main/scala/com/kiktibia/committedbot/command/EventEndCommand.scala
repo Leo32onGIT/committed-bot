@@ -7,7 +7,7 @@ import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.interactions.commands.build.{Commands, SlashCommandData}
-import java.nio.file.{Paths, Files}
+import java.io.{BufferedWriter, File, FileWriter}
 
 object EventEndCommand extends StrictLogging with Command {
 
