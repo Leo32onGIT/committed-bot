@@ -7,7 +7,7 @@ import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.interactions.commands.build.{Commands, SlashCommandData}
-import scalax.io._
+import scala.io.Source
 
 object EventEndCommand extends StrictLogging with Command {
 
@@ -46,7 +46,7 @@ object EventEndCommand extends StrictLogging with Command {
     embed.build()
 
 		// start new event
-		val eventFile = Resource.fromFile("/home/data/committed-bot/event/0.dat")
+		val eventFile = Source.fromFile("/home/data/committed-bot/event/0.dat")
 		eventFile truncate 0
   }
 
