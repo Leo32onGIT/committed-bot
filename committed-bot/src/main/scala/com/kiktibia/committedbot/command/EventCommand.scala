@@ -32,7 +32,19 @@ object EventCommand extends StrictLogging with Command {
     }.map { case (rank, value) => (rank.name, value) }
 
     val embed = new EmbedBuilder()
-    embed.setTitle("Level event update").setColor(16753451)
+
+		// attempt to cycle through embed colors
+		var index = 0
+		val embedColorList = List(16711680, 16744192, 16776960, 65280, 255, 9699539)
+		var embedColor = embedColorList(index)
+
+		if (index < 5) {
+			index++
+		} else {
+			index = 0
+		}
+
+    embed.setTitle("<:Committed:851275528605794345> EXP Event Rankings <:Committed:851275528605794345>").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
         addRankFieldToEmbed(groupedCharData, embed, rank, None)
