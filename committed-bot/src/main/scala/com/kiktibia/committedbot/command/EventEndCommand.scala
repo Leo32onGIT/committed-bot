@@ -47,8 +47,8 @@ object EventEndCommand extends StrictLogging with Command {
     embed.build()
 
 		// start new event
-		val out:Output = Resource.fromOutputStream(new java.io.FileOutputStream("/home/data/committed-bot/event/0.dat"))
-		out truncate 0
+		val eventFile = Resource.fromFile("/home/data/committed-bot/event/0.dat")
+		eventFile truncate 0
   }
 
 }
