@@ -21,7 +21,6 @@ object EmbedHelper extends StrictLogging {
       }
     }
     embed.addField(name, field, inline)
-    embed.setThumbnail("https://cdn.discordapp.com/icons/839339600102948914/10fe4ed209cea3c1e99c791261e3d930.webp")
     logger.info(s"Embed length: ${embed.length()}")
   }
 }
