@@ -34,13 +34,8 @@ object EventCommand extends StrictLogging with Command {
     val embed = new EmbedBuilder()
 
 		// attempt to cycle through embed colors
-		val embedColorList = Set(16711680, 16744192, 16776960, 65280, 255, 9699539)
-
-		def random[T](s: Set[T]): T = {
-		  s.iterator.next
-		}
-
-		val embedColor = random(embedColorList)
+		val circular = Iterator.continually(List(16711680, 16744192, 16776960, 65280, 255, 9699539)).flatten
+		val embedColor = circular.next()
 
     embed.setTitle("EXP Event Rankings").setColor(embedColor)
     requestedRank match {
