@@ -19,7 +19,7 @@ object EventCommand extends StrictLogging with Command {
     .addOptions(new OptionData(OptionType.STRING, "rank", "The rank to show")
       .addChoices(ranksAsChoices()))
 
-	val circular = Iterator.continually(List(11209740, 12536331, 13617937, 1617927, 139939, 9699539)).flatten
+	val circular = Iterator.continually(List(15218988, 12536331, 13617937, 1617927, 2311385, 9699539)).flatten
 
   def handleEvent(event: SlashCommandInteractionEvent): MessageEmbed = {
     logger.info("event command called")
@@ -77,7 +77,7 @@ object EventCommand extends StrictLogging with Command {
 			case "Stormborn" =>
 				emoji = "<a:morshabaal:1003487272043302974>"
 		}
-		EmbedHelper.addMultiFields(embed, s"$rank $emoji", fieldValue, false)
+		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldValue, false)
 	}
 
   private def ranksAsChoices() = {
@@ -88,7 +88,7 @@ object EventCommand extends StrictLogging with Command {
 
   private def rankMessage(c: CharData): String = {
     val levels = if (c.gained == 1) "level" else "levels"
-    s"**${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
+    s"• **${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
   }
 
 }

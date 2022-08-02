@@ -21,6 +21,7 @@ object EmbedHelper extends StrictLogging {
       }
     }
     embed.addField(name, field, inline)
+		embed.setThumbnail("https://static.tibia.com/images/guildlogos/Committed.gif")
     logger.info(s"Embed length: ${embed.length()}")
   }
 }
