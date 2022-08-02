@@ -37,13 +37,12 @@ object EventCommand extends StrictLogging with Command {
 		val embedColorList = Set(16711680, 16744192, 16776960, 65280, 255, 9699539)
 
 		def random[T](s: Set[T]): T = {
-		  val n = util.Random.nextInt(s.size)
-		  s.iterator.drop(n).next
+		  s.iterator.next
 		}
 
 		val embedColor = random(embedColorList)
 
-    embed.setTitle("<:Committed:851275528605794345> EXP Event Rankings <:Committed:851275528605794345>").setColor(embedColor)
+    embed.setTitle("EXP Event Rankings").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
         addRankFieldToEmbed(groupedCharData, embed, rank, None)
