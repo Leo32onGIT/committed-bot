@@ -20,7 +20,7 @@ object RankupsCommand extends StrictLogging with Command {
     val rankupMessages = charData.flatMap { c =>
       val startRank = Rank.levelToRank(c.startLevel).id
       val endRank = Rank.levelToRank(c.endLevel).id
-      if (startRank != endRank) Some(s"**${c.name}**: ${c.startLevel} to ${c.endLevel}")
+      if (startRank != endRank) Some(s"• **${c.name}**: ${c.startLevel} to ${c.endLevel}")
       else None
     }
 
