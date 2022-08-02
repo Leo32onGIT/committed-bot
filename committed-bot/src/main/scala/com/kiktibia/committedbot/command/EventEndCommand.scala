@@ -7,7 +7,6 @@ import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.interactions.commands.build.{Commands, SlashCommandData}
-import java.io.{BufferedWriter, File, FileWriter}
 
 object EventEndCommand extends StrictLogging with Command {
 
@@ -47,6 +46,4 @@ object EventEndCommand extends StrictLogging with Command {
 
   }
 
-	val eventWriter = new BufferedWriter(new FileWriter("/home/data/committed-bot/event/0.dat"))
-	eventWriter.close()
 }

@@ -3,6 +3,7 @@ package com.kiktibia.committedbot
 import com.kiktibia.committedbot.command.{EventCommand, RankupsCommand, EventEndCommand}
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
+import java.io.{BufferedWriter, File, FileWriter}
 
 class BotListener extends ListenerAdapter {
 
@@ -31,5 +32,8 @@ class BotListener extends ListenerAdapter {
 	private def handleEventEnd(event: SlashCommandInteractionEvent): Unit = {
     val embed = EventEndCommand.handleEvent()
     event.replyEmbeds(embed).queue()
+
+		val eventWriter = new BufferedWriter(new FileWriter("/home/data/committed-bot/event/0.dat"))
+		eventWriter.close()
   }
 }
