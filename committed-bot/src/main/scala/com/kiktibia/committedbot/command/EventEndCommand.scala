@@ -6,8 +6,7 @@ import com.kiktibia.committedbot.util.{EmbedHelper, FileUtils}
 import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
-import net.dv8tion.jda.api.interactions.commands.build.{Commands, SlashCommandData}
-import net.dv8tion.jda.api.interactions.commands
+import net.dv8tion.jda.api.interactions.commands.build.{Commands, CommandData, SlashCommandData}
 
 object EventEndCommand extends StrictLogging with Command {
 
