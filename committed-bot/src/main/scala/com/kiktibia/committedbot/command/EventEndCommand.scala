@@ -38,7 +38,7 @@ object EventEndCommand extends StrictLogging with Command {
       val prizeMessages = winners.map { winner =>
 				val levels = if (winner.gained == 1) "level" else "levels"
 				val currentMedal = medals.next()
-        s"$currentMedal **${winner.name}**: ${winner.gained} $levels (${c.startLevel} to ${c.endLevel})"
+        s"$currentMedal **${winner.name}**: ${winner.gained} $levels (${winner.startLevel} to ${winner.endLevel})"
       }
 			rank match {
 				case "Night Walker" =>
