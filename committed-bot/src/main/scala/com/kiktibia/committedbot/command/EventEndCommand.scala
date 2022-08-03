@@ -34,7 +34,7 @@ object EventEndCommand extends StrictLogging with Command {
       val top3 = scores.take(3)
       val winners = top3 ++ scores.drop(3).takeWhile(_.gained == top3.last.gained)
       val winnersWithIndex = winners.zipWithIndex
-      val prizeMessages = if (winnersWithIndex.isEmpty()) "test" else winnersWithIndex.map { case (winner, index) =>
+      val prizeMessages = if (winnersWithIndex.isEmpty) "test" else winnersWithIndex.map { case (winner, index) =>
 				val levels = if (winner.gained == 1) "level" else "levels"
 				val currentMedal = if (index == 0) ":first_place:" else if (index == 1) ":second_place:" else if (index == 2) ":third_place:" else ":medal:"
         s"$currentMedal **${winner.name}**: ${winner.gained} $levels (${winner.startLevel} to ${winner.endLevel})"
