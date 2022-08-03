@@ -39,16 +39,16 @@ object EventEndCommand extends StrictLogging with Command {
 			//logger.info(s"top3: $top3")
 			//logger.info(s"winners: $winners")
 			//logger.info(s"winnersWithIndex: $winnersWithIndex")
-      val prizeMessages = winners.map { winner =>
+      //val prizeMessages = winners.map { winner =>
         //val tiedWith = winnersWithIndex.filter(_._1.gained == winner.gained)
         //val numTiedWith = tiedWith.length
         //val numPrizesToShare = tiedWith.count(_._2 <= 2)
 				//logger.info(s"tiedWith: $tiedWith")
 				//logger.info(s"numTiedWith: $numTiedWith")
 				//logger.info(s"numPrizesToShar: $numPrizesToShare")
-				val levels = if (winner.gained == 1) "level" else "levels"
-        s"• **${winner.name}**: ${winner.gained} $levels (${c.startLevel} to ${c.endLevel})"
-      }
+				//val levels = if (winner.gained == 1) "level" else "levels"
+        //s"• **${winner.name}**: ${winner.gained} $levels (${c.startLevel} to ${c.endLevel})"
+      //}
 			rank match {
 				case "Night Walker" =>
 	    		emoji = "<a:Rotworm_1x:1003487298526126150>"
