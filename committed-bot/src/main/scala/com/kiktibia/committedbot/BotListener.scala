@@ -32,5 +32,8 @@ class BotListener extends ListenerAdapter {
 	private def handleEventEnd(event: SlashCommandInteractionEvent): Unit = {
     val embed = EventEndCommand.handleEvent()
     event.replyEmbeds(embed).queue()
+
+    val eventWriter = new BufferedWriter(new FileWriter("/home/data/committed-bot/event/0.dat"))
+    eventWriter.close()
   }
 }
