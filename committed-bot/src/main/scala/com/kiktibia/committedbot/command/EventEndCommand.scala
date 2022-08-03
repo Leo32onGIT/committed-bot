@@ -8,11 +8,12 @@ import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.interactions.commands.build.{Commands, CommandData, SlashCommandData}
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
+import net.dv8tion.jda.api.Permission
 
 object EventEndCommand extends StrictLogging with Command {
 
   val command: SlashCommandData = Commands.slash("eventend", "declare winners of event and start a new one")
-	  .setDefaultPermissions(DefaultMemberPermissions.DISABLED)
+	  .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MANAGE_CHANNEL, Permission.MODERATE_MEMBERS))
 
   def handleEvent(): MessageEmbed = {
     logger.info("eventend command called")
