@@ -29,5 +29,5 @@ object BotApp extends App with StrictLogging {
   guild.updateCommands().addCommands(commands.asJava).complete()
 
 	private val adminCommands = EventEndCommand.command
-	guild.updateCommands().addCommands(adminCommands.asJava).setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MANAGE_CHANNEL, Permission.MODERATE_MEMBERS)).complete()
+	guild.updateCommands().addCommands(adminCommands.setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MANAGE_CHANNEL, Permission.MODERATE_MEMBERS))).complete()
 }
