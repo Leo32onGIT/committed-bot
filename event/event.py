@@ -39,7 +39,7 @@ def update_files(levels):
                     name = level['name']
                     next_line = f'{date_time},{name},{current_level}'
                     print(next_line)
-                    	f.write(f'{next_line}\n')
+                    f.write(f'{next_line}\n')
 
 
 def get_level(guild_char, world_chars):
