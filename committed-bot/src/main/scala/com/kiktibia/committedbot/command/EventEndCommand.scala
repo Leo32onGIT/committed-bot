@@ -13,7 +13,7 @@ import scala.jdk.CollectionConverters._
 object EventEndCommand extends StrictLogging with Command {
 
   val command: SlashCommandData = Commands.slash("eventend", "declare winners of event and start a new one")
-	  .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.BAN_MEMBERS).asJava)
+	  .setDefaultPermissions(DefaultMemberPermissions.DISABLED.asJava)
 
   def handleEvent(): MessageEmbed = {
     logger.info("eventend command called")
