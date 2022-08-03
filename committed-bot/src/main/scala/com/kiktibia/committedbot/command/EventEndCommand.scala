@@ -28,7 +28,7 @@ object EventEndCommand extends StrictLogging with Command {
     embed.setTitle("<:server_owner:906644897019338814> Event Winners <:server_owner:906644897019338814>", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Committed").setColor(16753451)
 		embed.setThumbnail("https://cdn.discordapp.com/icons/839339600102948914/10fe4ed209cea3c1e99c791261e3d930.webp")
 		var emoji = ":fire:"
-		val medals = Iterator.continually(List(":first_place:", "second_place:", ":third_place:")).flatten
+		val medals = Iterator.continually(List(":first_place:", ":second_place:", ":third_place:")).flatten
 
     ranks.map(_.name).foreach { rank =>
       val scores = groupedCharData.getOrElse(rank, List.empty)
