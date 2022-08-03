@@ -1,6 +1,6 @@
 package com.kiktibia.committedbot
 
-import com.kiktibia.committedbot.command.{EventCommand, RankupsCommand, EventEndCommand}
+import com.kiktibia.committedbot.command.{EventCommand, FinishEventCommand}
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import java.io.{BufferedWriter, File, FileWriter}
@@ -11,10 +11,8 @@ class BotListener extends ListenerAdapter {
     event.getName match {
       case "event" =>
         handleEvent(event)
-      case "rankups" =>
-        handleRankups(event)
-			case "eventend" =>
-	        handleEventEnd(event)
+			case "finishevent" =>
+	        handleFinishEvent(event)
       case _ =>
     }
   }
@@ -24,13 +22,8 @@ class BotListener extends ListenerAdapter {
     event.replyEmbeds(embed).queue()
   }
 
-  private def handleRankups(event: SlashCommandInteractionEvent): Unit = {
-    val embed = RankupsCommand.handleEvent()
-    event.replyEmbeds(embed).queue()
-  }
-
-	private def handleEventEnd(event: SlashCommandInteractionEvent): Unit = {
-    val embed = EventEndCommand.handleEvent()
+	private def handleFinishEvent(event: SlashCommandInteractionEvent): Unit = {
+    val embed = FinishEventCommand.handleEvent()
     event.replyEmbeds(embed).queue()
 
     val eventWriter = new BufferedWriter(new FileWriter("/home/data/committed-bot/event/0.dat"))
