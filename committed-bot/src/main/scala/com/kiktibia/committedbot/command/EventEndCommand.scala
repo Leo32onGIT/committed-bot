@@ -7,6 +7,7 @@ import com.typesafe.scalalogging.StrictLogging
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.interactions.commands.build.{Commands, SlashCommandData}
+import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
 
 object EventEndCommand extends StrictLogging with Command {
 
