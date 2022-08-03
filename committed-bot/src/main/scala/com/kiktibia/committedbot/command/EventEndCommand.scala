@@ -63,7 +63,7 @@ object EventEndCommand extends StrictLogging with Command {
 				case "Stormborn" =>
 					emoji = "<a:morshabaal:1003487272043302974>"
 			}
-      EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", prizeMessages, false)
+      EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", "prizeMessages", false)
     }
 
     embed.build()
