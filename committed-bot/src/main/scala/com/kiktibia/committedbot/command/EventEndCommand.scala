@@ -21,7 +21,7 @@ object EventEndCommand extends StrictLogging with Command {
     val charData = eventDataToCharData(eventData).filter(_.gained > 0).sortWith(charDataSort)
 
     val groupedCharData = charData.groupBy { c =>
-      Rank.levelToRank(c.startLevel)
+      Rank.levelToRank(c.gained)
     }.map { case (rank, value) => (rank.name, value) }
 
     val embed = new EmbedBuilder()
@@ -31,26 +31,24 @@ object EventEndCommand extends StrictLogging with Command {
 
     ranks.map(_.name).foreach { rank =>
       val scores = groupedCharData.getOrElse(rank, List.empty)
-			val orderedList = scores.orderBy(_._4)
       //val top3 = scores.take(3)
 
 			//val winners = top3 ++ scores.drop(3).takeWhile(_.gained == top3.last.gained)
       //val winnersWithIndex = winners.zipWithIndex
 			logger.info(s"scores: $scores")
-			logger.info(s"orderedList: $orderedList")
 			//logger.info(s"top3: $top3")
 			//logger.info(s"winners: $winners")
 			//logger.info(s"winnersWithIndex: $winnersWithIndex")
-      //val prizeMessages = winners.map { winner =>
+      val prizeMessages = winners.map { winner =>
         //val tiedWith = winnersWithIndex.filter(_._1.gained == winner.gained)
         //val numTiedWith = tiedWith.length
         //val numPrizesToShare = tiedWith.count(_._2 <= 2)
 				//logger.info(s"tiedWith: $tiedWith")
 				//logger.info(s"numTiedWith: $numTiedWith")
 				//logger.info(s"numPrizesToShar: $numPrizesToShare")
-				//val levels = if (winner.gained == 1) "level" else "levels"
-        //s"• **${winner.name}**: ${winner.gained} $levels (${c.startLevel} to ${c.endLevel})"
-      //}
+				val levels = if (winner.gained == 1) "level" else "levels"
+        s"• **${winner.name}**: ${winner.gained} $levels (${c.startLevel} to ${c.endLevel})"
+      }
 			rank match {
 				case "Night Walker" =>
 	    		emoji = "<a:Rotworm_1x:1003487298526126150>"
