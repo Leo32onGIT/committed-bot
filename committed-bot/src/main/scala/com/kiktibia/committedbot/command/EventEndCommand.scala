@@ -8,7 +8,6 @@ import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.interactions.commands.build.{Commands, CommandData, SlashCommandData}
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
-import scala.jdk.CollectionConverters._
 
 object EventEndCommand extends StrictLogging with Command {
 
