@@ -17,11 +17,7 @@ def main():
         level = get_level(char, world_chars)
         levels.append({'name': char['name'], 'level': level})
 
-    try
         update_files(levels)
-	except:
-        print("file could not be accessed.")
-
 
 def update_files(levels):
     data_path = pathlib.Path('/home') / 'data' / 'committed-bot' / 'event'
@@ -43,10 +39,7 @@ def update_files(levels):
                     name = level['name']
                     next_line = f'{date_time},{name},{current_level}'
                     print(next_line)
-                    try
                     	f.write(f'{next_line}\n')
-                    except:
-                    print("file was in use.")
 
 
 def get_level(guild_char, world_chars):
