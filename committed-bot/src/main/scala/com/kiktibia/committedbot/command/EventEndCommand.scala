@@ -21,33 +21,24 @@ object EventEndCommand extends StrictLogging with Command {
     val charData = eventDataToCharData(eventData).filter(_.gained > 0).sortWith(charDataSort)
 
     val groupedCharData = charData.groupBy { c =>
-      Rank.levelToRank(c.gained)
+      Rank.levelToRank(c.startLevel)
     }.map { case (rank, value) => (rank.name, value) }
 
     val embed = new EmbedBuilder()
     embed.setTitle("<:server_owner:906644897019338814> Event Winners <:server_owner:906644897019338814>", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Committed").setColor(16753451)
 		embed.setThumbnail("https://cdn.discordapp.com/icons/839339600102948914/10fe4ed209cea3c1e99c791261e3d930.webp")
 		var emoji = ":fire:"
+		val medals = Iterator.continually(List(":first_place:", "second_place:", ":third_place:")).flatten
 
     ranks.map(_.name).foreach { rank =>
       val scores = groupedCharData.getOrElse(rank, List.empty)
       val top3 = scores.take(3)
-
-			val winners = top3 ++ scores.drop(3).takeWhile(_.gained == top3.last.gained)
+      val winners = top3 ++ scores.drop(3).takeWhile(_.gained == top3.last.gained)
       val winnersWithIndex = winners.zipWithIndex
-			logger.info(s"scores: $scores")
-			//logger.info(s"top3: $top3")
-			//logger.info(s"winners: $winners")
-			//logger.info(s"winnersWithIndex: $winnersWithIndex")
       val prizeMessages = winners.map { winner =>
-        val tiedWith = winnersWithIndex.filter(_._1.gained == winner.gained)
-        val numTiedWith = tiedWith.length
-        val numPrizesToShare = tiedWith.count(_._2 <= 2)
-				//logger.info(s"tiedWith: $tiedWith")
-				//logger.info(s"numTiedWith: $numTiedWith")
-				//logger.info(s"numPrizesToShar: $numPrizesToShare")
 				val levels = if (winner.gained == 1) "level" else "levels"
-        s"• **${winner.name}**: ${winner.gained} $levels (${c.startLevel} to ${c.endLevel})"
+				val currentMedal = medals.next()
+        s"$currentMedal **${winner.name}**: ${winner.gained} $levels (${c.startLevel} to ${c.endLevel})"
       }
 			rank match {
 				case "Night Walker" =>
