@@ -33,7 +33,7 @@ class BotListener extends ListenerAdapter {
     val embed = EventEndCommand.handleEvent()
     event.replyEmbeds(embed).queue()
 
-    //val eventWriter = new BufferedWriter(new FileWriter("/home/data/committed-bot/event/0.dat"))
-    //eventWriter.close()
+    val eventWriter = new BufferedWriter(new FileWriter("/home/data/committed-bot/event/0.dat"))
+    eventWriter.close()
   }
 }
