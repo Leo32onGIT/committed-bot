@@ -26,8 +26,7 @@ object BotApp extends App with StrictLogging {
 //    commands.forEach(c => guild.deleteCommandById(c.getId).queue())
 //  }.queue()
   private val commands = List(EventCommand.command, RankupsCommand.command)
-  guild.updateCommands().addCommands(commands.asJava).complete()
-
 	private val adminCommands = EventEndCommand.command
-	guild.updateCommands().addCommands(adminCommands.setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MANAGE_CHANNEL, Permission.MODERATE_MEMBERS))).complete()
+  guild.updateCommands().addCommands(commands.asJava).complete()
+	guild.updateCommands().addCommands(adminCommands).complete()
 }
