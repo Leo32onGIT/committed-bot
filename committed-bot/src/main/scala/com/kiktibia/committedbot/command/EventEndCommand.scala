@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
 object EventEndCommand extends StrictLogging with Command {
 
   val command: SlashCommandData = Commands.slash("eventend", "declare winners of event and start a new one")
-	  .setDefaultPermissions(DefaultMemberPermissions.DISABLED)
+	  //.setDefaultPermissions(DefaultMemberPermissions.DISABLED)
 
   def handleEvent(): MessageEmbed = {
     logger.info("eventend command called")
@@ -25,23 +25,44 @@ object EventEndCommand extends StrictLogging with Command {
     }.map { case (rank, value) => (rank.name, value) }
 
     val embed = new EmbedBuilder()
-    embed.setTitle(":fire: Event Winners :fire:").setColor(16753451)
+    embed.setTitle("<:server_owner:906644897019338814> Event Winners <:server_owner:906644897019338814>", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Committed").setColor(16753451)
+		embed.setThumbnail("https://cdn.discordapp.com/icons/839339600102948914/10fe4ed209cea3c1e99c791261e3d930.webp")
+		var emoji = ":fire:"
 
     ranks.map(_.name).foreach { rank =>
       val scores = groupedCharData.getOrElse(rank, List.empty)
       val top3 = scores.take(3)
       val winners = top3 ++ scores.drop(3).takeWhile(_.gained == top3.last.gained)
       val winnersWithIndex = winners.zipWithIndex
-
+			logger.info(s"scores: $scores")
+			logger.info(s"top3: $top3")
+			logger.info(s"winners: $winners")
+			logger.info(s"winnersWithIndex: $winnersWithIndex")
       val prizeMessages = winners.map { winner =>
         val tiedWith = winnersWithIndex.filter(_._1.gained == winner.gained)
         val numTiedWith = tiedWith.length
         val numPrizesToShare = tiedWith.count(_._2 <= 2)
-        val prizeMoney = 1000 * numPrizesToShare / numTiedWith
-        val prizeString = if (prizeMoney == 1000) "1kk" else s"${prizeMoney}k"
-        s"• **${winner.name}**: ${winner.gained} levels, $prizeString"
+				logger.info(s"tiedWith: $tiedWith")
+				logger.info(s"numTiedWith: $numTiedWith")
+				logger.info(s"numPrizesToShar: $numPrizesToShare")
+				val levels = if (winner.gained == 1) "level" else "levels"
+        s"• **${winner.name}**: ${winner.gained} $levels"
       }
-      EmbedHelper.addMultiFields(embed, s"<:server_owner:906644897019338814> $rank Winners <:server_owner:906644897019338814>", prizeMessages, false)
+			rank match {
+				case "Night Walker" =>
+	    		emoji = "<a:Rotworm_1x:1003487298526126150>"
+				case "Night Raider" =>
+					emoji = "<a:luckydragon:1003487247187841106>"
+				case "Faceless" =>
+					emoji = "<a:noxiousripptor:1003487284642983966>"
+				case "Ironborne" =>
+					emoji = "<a:magmacolossus:1003487259833663488>"
+				case "Valyrian" =>
+					emoji = "<a:Ferumbras_1x:1003487231194959982>"
+				case "Stormborn" =>
+					emoji = "<a:morshabaal:1003487272043302974>"
+			}
+      EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", prizeMessages, false)
     }
 
     embed.build()
