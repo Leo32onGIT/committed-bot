@@ -2,7 +2,10 @@
 
 Discord bot for the Committed Tibia guild
 
-On the server (assumed working directory is `/var/git/committed-bot`)
+On the server:
+assumed working directory is: `/var/git/committed-bot`
+assumed data director is: `/home`
+
 1. Create a `prod.env` file to pass the variables to docker from: `src/main/resources/application.conf`
 ```
 TOKEN=XXXXXXXXXXX
