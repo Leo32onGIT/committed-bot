@@ -21,7 +21,7 @@ mkdir -p $DATA_DIR/data/committed-bot/{event,members}
 3. Create members file and give it permissions that docker can write to:
 
 ```
-touch $DATA_DIR/data/committed-bot/members/
+touch $DATA_DIR/data/committed-bot/members/commited.dat
 chmod 666 $DATA_DIR/data/committed-bot/members/committed.dat
 ```
 4. Run the docker container, pointing to the env file created in step 1:
