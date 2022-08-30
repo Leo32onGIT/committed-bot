@@ -15,7 +15,7 @@ import scala.jdk.CollectionConverters._
 
 object EventCommand extends StrictLogging with Command {
 
-  val command: SlashCommandData = Commands.slash("event", "get info of event")
+  val command: SlashCommandData = Commands.slash("levels", "get info of event")
     .addOptions(new OptionData(OptionType.STRING, "rank", "The rank to show")
       .addChoices(ranksAsChoices()))
 
