@@ -26,8 +26,8 @@ object FinishEventCommand extends StrictLogging with Command {
     }.map { case (rank, value) => (rank.name, value) }
 
     val embed = new EmbedBuilder()
-    embed.setTitle(":trophy: Event Winners :trophy:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Committed").setColor(16753451)
-		embed.setThumbnail("https://cdn.discordapp.com/icons/839339600102948914/10fe4ed209cea3c1e99c791261e3d930.webp")
+    embed.setTitle(":trophy: Event Winners :trophy:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(16753451)
+		embed.setThumbnail("https://cdn.discordapp.com/icons/912739993015947324/a_286e97a9dc9c01c6d5eb4b43726927af.webp")
 		var emoji = ":fire:"
 
     ranks.map(_.name).foreach { rank =>
@@ -42,11 +42,11 @@ object FinishEventCommand extends StrictLogging with Command {
       }
 			rank match {
 				case "New" =>
-	    		emoji = "test"
+	    		emoji = ":wheelchair:"
 				case "Loyal" =>
-					emoji = "test"
+					emoji = ":heart_on_fire:"
 				case "Leader" =>
-					emoji = "test"
+					emoji = ":crown:"
 			}
       EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", prizeMessages, false)
     }

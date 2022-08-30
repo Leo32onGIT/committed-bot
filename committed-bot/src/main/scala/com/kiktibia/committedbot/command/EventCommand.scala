@@ -38,14 +38,14 @@ object EventCommand extends StrictLogging with Command {
 		// attempt to cycle through embed colors
 		val embedColor = circular.next()
 
-    embed.setTitle("<:server_owner:906644897019338814> Leaderboards <:server_owner:906644897019338814>", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Committed").setColor(embedColor)
+    embed.setTitle(":popcorn: Leaderboards :popcorn:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
         addRankFieldToEmbed(groupedCharData, embed, rank, None)
       case None =>
         ranks.map(_.name).foreach { rank =>
           addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
-					embed.setThumbnail("https://cdn.discordapp.com/icons/839339600102948914/10fe4ed209cea3c1e99c791261e3d930.webp")
+					embed.setThumbnail("https://cdn.discordapp.com/icons/912739993015947324/a_286e97a9dc9c01c6d5eb4b43726927af.webp")
         }
     }
     embed.build()
@@ -66,11 +66,11 @@ object EventCommand extends StrictLogging with Command {
     }
 		rank match {
 			case "New" =>
-    		emoji = "test"
+    		emoji = ":wheelchair:"
 			case "Loyal" =>
-				emoji = "test"
+				emoji = ":heart_on_fire:"
 			case "Leader" =>
-				emoji = "test"
+				emoji = ":crown:"
 		}
 		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldValue, false)
 	}
