@@ -19,7 +19,7 @@ DATA_DIR=/home
 touch $DATA_DIR/data/committed-bot/members/commited.dat
 touch $DATA_DIR/data/committed-bot/event/0.dat
 chmod 666 $DATA_DIR/data/committed-bot/members/committed.dat
-chmod 666 $DATA_DIR/data/committed-bot/members/0.dat
+chmod 666 $DATA_DIR/data/committed-bot/event/0.dat
 ```
 
 Create a cronjob to update the character data every 5 minutes:
