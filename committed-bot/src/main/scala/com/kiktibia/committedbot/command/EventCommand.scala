@@ -63,27 +63,25 @@ object EventCommand extends StrictLogging with Command {
 
 		rank match {
 			case "Makers" =>
-				rankText = "(under 200)"
+				rankText = "under 300"
     		emoji = ":wheelchair:"
 			case "Farmers" =>
-				rankText = "(under 400)"
+				rankText = "under 600"
 				emoji = ":farmer:"
 			case "Mains" =>
-			rankText = "(under 700)"
-				emoji = ":coin:"
-			case "Ballers" =>
-				rankText = "(under 1000)"
-				emoji = ":8ball:"
+			rankText = "under 1000"
+				emoji = ":100:"
 			case "Top Dogs" =>
+				rankText = "over 1000"
 				emoji = ":dog:"
 		}
 
 		val fieldValue = rankMessages match {
-			case Nil => List("Nobody has gained any levels yet.")
+			case Nil => List(s"Nobody $rankText has gained any levels yet.")
 			case messages => messages
 		}
 
-		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji $rankText", fieldValue, false)
+		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldValue, false)
 	}
 
   private def ranksAsChoices() = {
