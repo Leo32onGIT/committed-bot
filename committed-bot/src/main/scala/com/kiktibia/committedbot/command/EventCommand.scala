@@ -15,7 +15,7 @@ import scala.jdk.CollectionConverters._
 
 object EventCommand extends StrictLogging with Command {
 
-  val command: SlashCommandData = Commands.slash("levels", "get info of event")
+  val command: SlashCommandData = Commands.slash("levels", "Get current leaderboard data")
     .addOptions(new OptionData(OptionType.STRING, "rank", "The rank to show")
       .addChoices(ranksAsChoices()))
 
@@ -62,18 +62,18 @@ object EventCommand extends StrictLogging with Command {
     }
 
 		rank match {
-			case "Makers" =>
-				rankText = "under 300"
-    		emoji = ":wheelchair:"
-			case "Farmers" =>
-				rankText = "under 600"
-				emoji = ":farmer:"
-			case "Mains" =>
-			rankText = "under 1000"
-				emoji = ":100:"
 			case "Top Dogs" =>
 				rankText = "over 1000"
 				emoji = ":dog:"
+			case "Mains" =>
+				rankText = "under 1000"
+					emoji = ":100:"
+				case "Farmers" =>
+					rankText = "under 600"
+					emoji = ":farmer:"
+				case "Makers" =>
+					rankText = "under 300"
+					emoji = ":wheelchair:"
 		}
 
 		val fieldValue = rankMessages match {
@@ -92,7 +92,7 @@ object EventCommand extends StrictLogging with Command {
 
   private def rankMessage(c: CharData): String = {
     val levels = if (c.gained == 1) "level" else "levels"
-    s"• **${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
+    s":black_small_square:**${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
   }
 
 }
