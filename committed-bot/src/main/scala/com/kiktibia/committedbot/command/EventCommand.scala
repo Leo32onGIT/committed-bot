@@ -65,18 +65,12 @@ object EventCommand extends StrictLogging with Command {
       case messages => messages
     }
 		rank match {
-			case "Night Walker" =>
-    		emoji = "<a:Rotworm_1x:1003487298526126150>"
-			case "Night Raider" =>
-				emoji = "<a:luckydragon:1003487247187841106>"
-			case "Faceless" =>
-				emoji = "<a:noxiousripptor:1003487284642983966>"
-			case "Ironborne" =>
-				emoji = "<a:magmacolossus:1003487259833663488>"
-			case "Valyrian" =>
-				emoji = "<a:Ferumbras_1x:1003487231194959982>"
-			case "Stormborn" =>
-				emoji = "<a:morshabaal:1003487272043302974>"
+			case "New" =>
+    		emoji = "test"
+			case "Loyal" =>
+				emoji = "test"
+			case "Leader" =>
+				emoji = "test"
 		}
 		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldValue, false)
 	}
