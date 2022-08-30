@@ -1,18 +1,19 @@
 # Committed Bot
 
 Discord bot for the Committed Tibia guild
+  
+assumed working directory is: `/var/git/committed-bot`    
+assumed data directory is: `/home`
 
 On the server:
-assumed working directory is: `/var/git/committed-bot`
-assumed data director is: `/home`
 
-1. Create a `prod.env` file to pass the variables to docker from: `src/main/resources/application.conf`
+1. Create a `/var/git/committed-bot/prod.env` file to pass the variables to docker:
 ```
 TOKEN=XXXXXXXXXXX
 GUILD_ID=<DISCORD SERVER ID>
 DATA_DIR=/home
 ```
-2. Create members file and give it permissions that docker can write to:
+2. Create the members and initial event file and give it permissions that docker can write to:
 
 ```
 touch $DATA_DIR/data/committed-bot/members/commited.dat
