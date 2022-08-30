@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.Permission
 
 object FinishEventCommand extends StrictLogging with Command {
 
-  val command: SlashCommandData = Commands.slash("finishevent", "declare winners of event and start a new one")
+  val command: SlashCommandData = Commands.slash("winners", "declare winners of event and start a new one")
 	  .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MANAGE_SERVER))
 
   def handleEvent(): MessageEmbed = {

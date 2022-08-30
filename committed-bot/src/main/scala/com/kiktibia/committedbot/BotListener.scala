@@ -9,9 +9,9 @@ class BotListener extends ListenerAdapter {
 
   override def onSlashCommandInteraction(event: SlashCommandInteractionEvent): Unit = {
     event.getName match {
-      case "event" =>
+      case "levels" =>
         handleEvent(event)
-			case "finishevent" =>
+			case "winners" =>
 	        handleFinishEvent(event)
       case _ =>
     }
