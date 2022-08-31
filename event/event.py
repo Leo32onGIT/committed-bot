@@ -15,7 +15,7 @@ def main():
     levels = []
     for char in guild_chars:
         level = get_level(char, world_chars)
-        levels.append({'name': char['name'], 'level': level})
+        levels.append({'name': char['name'], 'level': level, 'vocation': char['vocation']})
 
         update_files(levels)
 
