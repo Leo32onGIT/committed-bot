@@ -13,13 +13,9 @@ case object Rank {
 		Rank(6, "Makers", None, None)
   )
 
-  def levelToRank(level: Int): Rank = {
-    if (level < 500) ranks(5)
-    else  ranks(4)
-  }
-
-	def vocToRank(vocation: String): Rank = {
-    if (vocation.contains("Knight")) ranks.head
+	def vocToRank(vocation: String, level: Int): Rank = {
+		if (level < 500) ranks(5)
+    else if (vocation.contains("Knight")) ranks.head
     else if (vocation.contains("Druid")) ranks(1)
     else if (vocation.contains("Paladin")) ranks(2)
 		else if (vocation.contains("Sorcerer")) ranks(3)

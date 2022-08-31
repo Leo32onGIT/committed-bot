@@ -30,7 +30,7 @@ object EventCommand extends StrictLogging with Command {
     val charData = eventDataToCharData(eventData).filter(_.gained > 0).sortWith(charDataSort)
 
     var groupedCharData = charData.groupBy { c =>
-      Rank.vocToRank(c.vocation)
+      Rank.vocToRank(c.vocation, c.startLevel)
     }.map { case (rank, value) => (rank.name, value) }
 
     val embed = new EmbedBuilder()
@@ -41,16 +41,7 @@ object EventCommand extends StrictLogging with Command {
     embed.setTitle(":popcorn: Leaderboards :popcorn:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
-				if (rank == "All" || rank == "Makers"){
-					groupedCharData = charData.groupBy { c =>
-						Rank.levelToRank(c.startLevel)
-					}.map {
-						case (rank, value) => (rank.name, value)
-					}
-					addRankFieldToEmbed(groupedCharData, embed, rank, None)
-				} else {
-					addRankFieldToEmbed(groupedCharData, embed, rank, None)
-				}
+				addRankFieldToEmbed(groupedCharData, embed, rank, None)
       case None =>
         ranks.map(_.name).foreach { rank =>
 					if (rank != "All" && rank != "Makers"){
