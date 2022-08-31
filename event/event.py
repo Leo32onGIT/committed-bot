@@ -37,7 +37,8 @@ def update_files(levels):
                     (int(previous_level.split(',')[2]) != current_level
                     and enough_time(previous_level.split(',')[0], date_time)):
                     name = level['name']
-                    next_line = f'{date_time},{name},{current_level}'
+                    vocation = level['vocation']
+                    next_line = f'{date_time},{name},{current_level},{vocation}'
                     print(next_line)
                     f.write(f'{next_line}\n')
 
