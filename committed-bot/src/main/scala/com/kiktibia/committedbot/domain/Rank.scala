@@ -9,7 +9,7 @@ case object Rank {
 		Rank(2, "Druids", None, None),
 		Rank(3, "Paladins", None, None),
 		Rank(4, "Sorcerers", None, None),
-		Rank(5, "All", None, None)
+		Rank(5, "All", None, None),
 		Rank(6, "Makers", None, None)
   )
 
