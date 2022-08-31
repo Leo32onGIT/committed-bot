@@ -92,7 +92,19 @@ object EventCommand extends StrictLogging with Command {
 
   private def rankMessage(c: CharData): String = {
     val levels = if (c.gained == 1) "level" else "levels"
-    s":black_small_square:**${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
+		val icon = ":smoking:"
+
+		if (c.vocation == "Sorcerer" or c.vocation == "Master Sorcerer"){
+			icon = ":fire:"
+		} else if (c.vocation == "Druid" or c.vocation == "Elder Druid") {
+			icon = ":snowflake:"
+		} else if (c.vocation == "Paladin" or c.vocation == "Royal Paladin"){
+			icon = ":bow_and_arrow:"
+		} else if (c.vocation == "Knight" or c.vocation == "Elite Knight"){
+			icon = ":shield:"
+		}
+
+    s"$icon **${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
   }
 
 }
