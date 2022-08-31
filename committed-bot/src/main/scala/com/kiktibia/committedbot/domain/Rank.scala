@@ -23,6 +23,6 @@ case object Rank {
     else if (vocation.contains("Druids")) ranks(1)
     else if (vocation.contains("Paladin")) ranks(2)
 		else if (vocation.contains("Sorcerer")) ranks(3)
-    else  ranks.tail
+    else  ranks.head
   }
 }
