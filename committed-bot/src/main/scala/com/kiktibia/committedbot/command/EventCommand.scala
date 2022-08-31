@@ -37,9 +37,9 @@ object EventCommand extends StrictLogging with Command {
 
 		// attempt to cycle through embed colors
 		val embedColor = circular.next()
+		embed.setColor(embedColor)
 
-    embed.setTitle(":popcorn: Leaderboards :popcorn:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(embedColor)
-    requestedRank match {
+  	requestedRank match {
       case Some(rank) =>
 				addRankFieldToEmbed(groupedCharData, embed, rank, None)
       case None =>
@@ -47,6 +47,7 @@ object EventCommand extends StrictLogging with Command {
 					if (rank != "All" && rank != "Makers"){
 						addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
 					}
+					embed.setTitle(":popcorn: Leaderboards :popcorn:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty")
 					embed.setThumbnail("https://cdn.discordapp.com/icons/912739993015947324/a_286e97a9dc9c01c6d5eb4b43726927af.webp")
         }
     }
