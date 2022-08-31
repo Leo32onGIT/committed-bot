@@ -44,7 +44,7 @@ object EventCommand extends StrictLogging with Command {
         addRankFieldToEmbed(groupedCharData, embed, rank, None)
       case None =>
         ranks.map(_.name).foreach { rank =>
-          addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
+          addRankFieldToEmbed(groupedCharData, embed, rank, Some(3))
 					embed.setThumbnail("https://cdn.discordapp.com/icons/912739993015947324/a_286e97a9dc9c01c6d5eb4b43726927af.webp")
         }
     }
@@ -67,13 +67,13 @@ object EventCommand extends StrictLogging with Command {
 				emoji = ":dog:"
 			case "Mains" =>
 				rankText = "under 1000"
-					emoji = ":100:"
-				case "Farmers" =>
-					rankText = "under 600"
-					emoji = ":farmer:"
-				case "Makers" =>
-					rankText = "under 300"
-					emoji = ":wheelchair:"
+				emoji = ":100:"
+			case "Farmers" =>
+				rankText = "under 600"
+				emoji = ":farmer:"
+			case "Makers" =>
+				rankText = "under 300"
+				emoji = ":wheelchair:"
 		}
 
 		val fieldValue = rankMessages match {
