@@ -48,6 +48,8 @@ object EventCommand extends StrictLogging with Command {
 						case (rank, value) => (rank.name, value)
 					}
 					addRankFieldToEmbed(groupedCharData, embed, rank, None)
+				} else {
+					addRankFieldToEmbed(groupedCharData, embed, rank, None)
 				}
       case None =>
         ranks.map(_.name).foreach { rank =>
