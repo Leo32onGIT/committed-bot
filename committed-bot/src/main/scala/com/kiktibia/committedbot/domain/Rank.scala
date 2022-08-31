@@ -18,7 +18,7 @@ case object Rank {
 	)
 
   def levelToRank(level: Int): Rank = {
-    if (level < 300) ranksAll(1)
+    if (level < 300) rankAll(1)
     else  rankAll.head
   }
 
