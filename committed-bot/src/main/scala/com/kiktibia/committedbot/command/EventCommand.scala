@@ -29,7 +29,7 @@ object EventCommand extends StrictLogging with Command {
 
     val charData = eventDataToCharData(eventData).filter(_.gained > 0).sortWith(charDataSort)
 
-    val groupedCharData = charData.groupBy { c =>
+    var groupedCharData = charData.groupBy { c =>
       Rank.vocToRank(c.vocation)
     }.map { case (rank, value) => (rank.name, value) }
 
@@ -41,7 +41,16 @@ object EventCommand extends StrictLogging with Command {
     embed.setTitle(":popcorn: Leaderboards :popcorn:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
-        addRankFieldToEmbed(groupedCharData, embed, rank, None)
+				if (rank == "All"){
+						groupedCharData = charData.groupBy { c =>
+							Rank.levelToRank(c.startLevel)
+						}.map { 
+								case (rank, value) => (rank.name, value)
+						}
+						addRankFieldToEmbed(groupedCharData, embed, rank, None)
+				} else {
+						addRankFieldToEmbed(groupedCharData, embed, rank, None)
+				}
       case None =>
         ranks.map(_.name).foreach { rank =>
           addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
@@ -62,13 +71,13 @@ object EventCommand extends StrictLogging with Command {
 
 		rank match {
 			case "Knights" =>
-				emoji = ":shield:"
+				emoji = ":sword:"
 			case "Druids" =>
-				emoji = ":snowflake:"
+				emoji = ":woman_elf:"
 			case "Paladins" =>
-				emoji = ":bow_and_arrow:"
+				emoji = ":children_crossing:"
 			case "Sorcerers" =>
-				emoji = ":fire:"
+				emoji = ":woman_mage:"
 		}
 
 		val fieldValue = rankMessages match {

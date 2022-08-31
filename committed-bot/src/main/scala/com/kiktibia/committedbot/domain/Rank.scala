@@ -9,13 +9,17 @@ case object Rank {
 		Rank(2, "Druids", None, None),
 		Rank(3, "Paladins", None, None),
 		Rank(4, "Sorcerers", None, None),
+		Rank(5, "All", None, None)
   )
 
+	val rankAll: List[Rank] = List(
+		Rank(1, "All", Some(300), None),
+		Rank(2, "Makers", None, Some(299)),
+	)
+
   def levelToRank(level: Int): Rank = {
-    if (level < 300) ranks(3)
-    else if (level < 600) ranks(2)
-    else if (level < 1000) ranks(1)
-    else  ranks.head
+    if (level < 300) ranksAll(1)
+    else  rankAll.head
   }
 
 	def vocToRank(vocation: String): Rank = {
