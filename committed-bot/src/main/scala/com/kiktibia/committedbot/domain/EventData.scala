@@ -11,12 +11,7 @@ case object EventData {
     val split = s.split(",")
     val ldt = LocalDateTime.parse(split.head, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
     val zdt = ldt.atZone(ZoneOffset.UTC)
-		val voc = split(3).toString()
-		println(zdt)
-		println(split(1))
-		println(split(2))
-		println(voc)
-    EventData(zdt, split(1), split(2).toInt, voc)
+    EventData(zdt, split(1), split(2).toInt, split(3))
   }
 
 }
