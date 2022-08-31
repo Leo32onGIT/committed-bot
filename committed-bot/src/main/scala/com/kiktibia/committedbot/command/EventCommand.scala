@@ -44,7 +44,7 @@ object EventCommand extends StrictLogging with Command {
 				if (rank == "All"){
 						groupedCharData = charData.groupBy { c =>
 							Rank.levelToRank(c.startLevel)
-						}.map { 
+						}.map {
 								case (rank, value) => (rank.name, value)
 						}
 						addRankFieldToEmbed(groupedCharData, embed, rank, None)
@@ -78,6 +78,10 @@ object EventCommand extends StrictLogging with Command {
 				emoji = ":children_crossing:"
 			case "Sorcerers" =>
 				emoji = ":woman_mage:"
+			case "All" =>
+				emoji = ":crown:"
+			case "Makers" =>
+				emoji = ":farmer:"
 		}
 
 		val fieldValue = rankMessages match {
