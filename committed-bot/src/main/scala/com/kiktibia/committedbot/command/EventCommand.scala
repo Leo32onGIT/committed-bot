@@ -93,7 +93,7 @@ object EventCommand extends StrictLogging with Command {
   private def rankMessage(c: CharData): String = {
     val levels = if (c.gained == 1) "level" else "levels"
 		var spacer = ":black_small_square:"
-		
+
 		c.vocation match {
 			case "Sorcerer" =>
 				spacer = ":fire:"
