@@ -5,10 +5,10 @@ case class Rank(id: Int, name: String, minLevel: Option[Int], maxLevel: Option[I
 case object Rank {
 
   val ranks: List[Rank] = List(
-    Rank(1, "Top Dogs", Some(1000), None),
-		Rank(2, "Mains", Some(600), Some(999)),
-		Rank(3, "Farmers", Some(300), Some(599)),
-		Rank(4, "Makers", None, Some(299)),
+    Rank(1, "Knights", None, None),
+		Rank(2, "Druids", None, None),
+		Rank(3, "Paladins", None, None),
+		Rank(4, "Sorcerers", None, None),
   )
 
   def levelToRank(level: Int): Rank = {
@@ -16,5 +16,13 @@ case object Rank {
     else if (level < 600) ranks(2)
     else if (level < 1000) ranks(1)
     else  ranks.head
+  }
+
+	def vocToRank(vocation: String): Rank = {
+    if (vocation.contains("Knight")) ranks.head
+    else if (vocation.contains("Druids")) ranks(1)
+    else if (vocation.contains("Paladin")) ranks(2)
+		else if (vocation.contains("Sorcerer")) ranks(3)
+    else  ranks.tail
   }
 }
