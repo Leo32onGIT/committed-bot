@@ -10,7 +10,6 @@ import net.dv8tion.jda.api.interactions.commands.Command.Choice
 import net.dv8tion.jda.api.interactions.commands.OptionType
 import net.dv8tion.jda.api.interactions.commands.build.{Commands, OptionData, SlashCommandData}
 import Rank.ranks
-import com.typesafe.scalalogging.StrictLogging
 
 import scala.jdk.CollectionConverters._
 
