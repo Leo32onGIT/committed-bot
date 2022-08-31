@@ -10,16 +10,12 @@ case object Rank {
 		Rank(3, "Paladins", None, None),
 		Rank(4, "Sorcerers", None, None),
 		Rank(5, "All", None, None)
+		Rank(6, "Makers", None, None)
   )
 
-	val rankAll: List[Rank] = List(
-		Rank(1, "All", Some(400), None),
-		Rank(2, "Makers", None, Some(399)),
-	)
-
   def levelToRank(level: Int): Rank = {
-    if (level < 400) rankAll(1)
-    else  rankAll.head
+    if (level < 500) ranks(5)
+    else  ranks(4)
   }
 
 	def vocToRank(vocation: String): Rank = {
@@ -27,6 +23,6 @@ case object Rank {
     else if (vocation.contains("Druid")) ranks(1)
     else if (vocation.contains("Paladin")) ranks(2)
 		else if (vocation.contains("Sorcerer")) ranks(3)
-    else  ranks.head
+    else  ranks(4)
   }
 }

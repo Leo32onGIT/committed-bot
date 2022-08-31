@@ -41,7 +41,7 @@ object EventCommand extends StrictLogging with Command {
     embed.setTitle(":popcorn: Leaderboards :popcorn:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
-				if (rank == "All"){
+				if (rank == "All" || rank == "Makers"){
 					groupedCharData = charData.groupBy { c =>
 						Rank.levelToRank(c.startLevel)
 					}.map {
@@ -53,7 +53,7 @@ object EventCommand extends StrictLogging with Command {
 				}
       case None =>
         ranks.map(_.name).foreach { rank =>
-					if (rank != "All"){
+					if (rank != "All" && rank != "Makers"){
 						addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
 					}
 					embed.setThumbnail("https://cdn.discordapp.com/icons/912739993015947324/a_286e97a9dc9c01c6d5eb4b43726927af.webp")
@@ -73,15 +73,15 @@ object EventCommand extends StrictLogging with Command {
 
 		rank match {
 			case "Knights" =>
-				emoji = ":crossed_swords:"
+				emoji = ":shield:"
 			case "Druids" =>
-				emoji = ":woman_elf:"
+				emoji = ":snowflake:"
 			case "Paladins" =>
-				emoji = ":children_crossing:"
+				emoji = ":bow_and_arrow:"
 			case "Sorcerers" =>
-				emoji = ":woman_mage:"
+				emoji = ":fire:"
 			case "All" =>
-				emoji = ":crown:"
+				emoji = ":trophy:"
 			case "Makers" =>
 				emoji = ":farmer:"
 		}
