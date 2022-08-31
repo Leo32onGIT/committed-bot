@@ -13,12 +13,12 @@ case object Rank {
   )
 
 	val rankAll: List[Rank] = List(
-		Rank(1, "All", Some(300), None),
-		Rank(2, "Makers", None, Some(299)),
+		Rank(1, "All", Some(400), None),
+		Rank(2, "Makers", None, Some(399)),
 	)
 
   def levelToRank(level: Int): Rank = {
-    if (level < 300) rankAll(1)
+    if (level < 400) rankAll(1)
     else  rankAll.head
   }
 

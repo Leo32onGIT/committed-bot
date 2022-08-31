@@ -42,18 +42,18 @@ object EventCommand extends StrictLogging with Command {
     requestedRank match {
       case Some(rank) =>
 				if (rank == "All"){
-						groupedCharData = charData.groupBy { c =>
-							Rank.levelToRank(c.startLevel)
-						}.map {
-								case (rank, value) => (rank.name, value)
-						}
-						addRankFieldToEmbed(groupedCharData, embed, rank, None)
-				} else {
-						addRankFieldToEmbed(groupedCharData, embed, rank, None)
+					groupedCharData = charData.groupBy { c =>
+						Rank.levelToRank(c.startLevel)
+					}.map {
+						case (rank, value) => (rank.name, value)
+					}
+					addRankFieldToEmbed(groupedCharData, embed, rank, None)
 				}
       case None =>
         ranks.map(_.name).foreach { rank =>
-          addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
+					if (rank != "All"){
+						addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
+					}
 					embed.setThumbnail("https://cdn.discordapp.com/icons/912739993015947324/a_286e97a9dc9c01c6d5eb4b43726927af.webp")
         }
     }
@@ -71,7 +71,7 @@ object EventCommand extends StrictLogging with Command {
 
 		rank match {
 			case "Knights" =>
-				emoji = ":sword:"
+				emoji = ":crossed_swords:"
 			case "Druids" =>
 				emoji = ":woman_elf:"
 			case "Paladins" =>
