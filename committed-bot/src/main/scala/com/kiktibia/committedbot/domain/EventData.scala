@@ -12,9 +12,9 @@ case object EventData {
     val ldt = LocalDateTime.parse(split.head, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
     val zdt = ldt.atZone(ZoneOffset.UTC)
 		var voc = "None"
-		if(split.length > 2){
+		if(split.length > 3){
 			voc = split(3)
-		} 
+		}
     EventData(zdt, split(1), split(2).toInt, voc)
   }
 
