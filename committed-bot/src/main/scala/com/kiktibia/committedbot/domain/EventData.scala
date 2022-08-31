@@ -3,7 +3,7 @@ package com.kiktibia.committedbot.domain
 import java.time.{LocalDateTime, ZoneOffset, ZonedDateTime}
 import java.time.format.DateTimeFormatter
 
-case class EventData(date: ZonedDateTime, name: String, level: Int)
+case class EventData(date: ZonedDateTime, name: String, level: Int, vocation: String)
 
 case object EventData {
 
