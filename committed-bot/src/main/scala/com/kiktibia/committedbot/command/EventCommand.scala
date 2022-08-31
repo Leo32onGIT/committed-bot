@@ -37,28 +37,12 @@ object EventCommand extends StrictLogging with Command {
 
 		// attempt to cycle through embed colors
 		val embedColor = circular.next()
-		var emoji = ":fire:"
 
+    embed.setTitle(":popcorn: Leaderboards :popcorn:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(embedColor)
     requestedRank match {
       case Some(rank) =>
-				rank match {
-					case "Knights" =>
-						emoji = ":shield:"
-					case "Druids" =>
-						emoji = ":snowflake:"
-					case "Paladins" =>
-						emoji = ":bow_and_arrow:"
-					case "Sorcerers" =>
-						emoji = ":fire:"
-					case "All" =>
-						emoji = ":trophy:"
-					case "Makers" =>
-						emoji = ":farmer:"
-				}
-				embed.setTitle(s"$emoji $rank $emoji", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(embedColor)
 				addRankFieldToEmbed(groupedCharData, embed, rank, None)
       case None =>
-				embed.setTitle(":popcorn: Leaderboards :popcorn:", "https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Loyalty").setColor(embedColor)
         ranks.map(_.name).foreach { rank =>
 					if (rank != "All" && rank != "Makers"){
 						addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
@@ -71,18 +55,34 @@ object EventCommand extends StrictLogging with Command {
 
   private def addRankFieldToEmbed(groupedCharData: Map[String, List[CharData]], embed: EmbedBuilder, rank: String, limit: Option[Int]): Unit = {
     val rankCharData = groupedCharData.getOrElse(rank, List.empty)
+		var emoji = ":fire:"
 
     val rankMessages = limit match {
       case Some(l) => rankCharData.take(l).map(rankMessage)
       case None => rankCharData.map(rankMessage)
     }
 
+		rank match {
+			case "Knights" =>
+				emoji = ":shield:"
+			case "Druids" =>
+				emoji = ":snowflake:"
+			case "Paladins" =>
+				emoji = ":bow_and_arrow:"
+			case "Sorcerers" =>
+				emoji = ":fire:"
+			case "All" =>
+				emoji = ":trophy:"
+			case "Makers" =>
+				emoji = ":farmer:"
+		}
+
 		val fieldValue = rankMessages match {
 			case Nil => List(s"No ${rank.toLowerCase()} have gained any levels yet.")
 			case messages => messages
 		}
 
-		EmbedHelper.addMultiFields(embed, "", fieldValue, false)
+		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldValue, false)
 	}
 
   private def ranksAsChoices() = {
