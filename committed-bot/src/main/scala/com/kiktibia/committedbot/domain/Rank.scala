@@ -20,7 +20,7 @@ case object Rank {
 
 	def vocToRank(vocation: String): Rank = {
     if (vocation.contains("Knight")) ranks.head
-    else if (vocation.contains("Druids")) ranks(1)
+    else if (vocation.contains("Druid")) ranks(1)
     else if (vocation.contains("Paladin")) ranks(2)
 		else if (vocation.contains("Sorcerer")) ranks(3)
     else  ranks.head
