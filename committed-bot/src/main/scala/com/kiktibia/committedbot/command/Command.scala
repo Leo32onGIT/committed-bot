@@ -10,8 +10,7 @@ trait Command {
     charNames.map { name =>
       val startLevel = eventData.filter(_.name == name).head.level
       val endLevel = reversedEventData.filter(_.name == name).head.level
-			//val voc = eventData.filter(_.name == name).head.vocation or "None"
-			val voc = "Master Sorcerer"
+			val voc = eventData.filter(_.name == name).head.vocation
       CharData(name, startLevel, endLevel, endLevel - startLevel, voc)
     }.toList
   }
