@@ -22,7 +22,7 @@ object FinishEventCommand extends StrictLogging with Command {
     val charData = eventDataToCharData(eventData).filter(_.gained > 0).sortWith(charDataSort)
 
     val groupedCharData = charData.groupBy { c =>
-      Rank.levelToRank(c.startLevel)
+      Rank.vocToRank(c.vocation, c.startLevel)
     }.map { case (rank, value) => (rank.name, value) }
 
     val embed = new EmbedBuilder()
@@ -41,7 +41,7 @@ object FinishEventCommand extends StrictLogging with Command {
 				val currentMedal = if (index == 0) ":first_place:" else if (index == 1) ":second_place:" else if (index == 2) ":third_place:" else ":medal:"
         s"$currentMedal **${winner.name}**: ${winner.gained} $levels (${winner.startLevel} to ${winner.endLevel})"
       }
-			
+
 			rank match {
 				case "Top Dogs" =>
 					rankText = "over 1000"
