@@ -54,7 +54,6 @@ object EventCommand extends StrictLogging with Command {
   private def addRankFieldToEmbed(groupedCharData: Map[String, List[CharData]], embed: EmbedBuilder, rank: String, limit: Option[Int]): Unit = {
     val rankCharData = groupedCharData.getOrElse(rank, List.empty)
 		var emoji = ":fire:"
-		var rankText = "under 300"
 
     val rankMessages = limit match {
       case Some(l) => rankCharData.take(l).map(rankMessage)
@@ -62,22 +61,18 @@ object EventCommand extends StrictLogging with Command {
     }
 
 		rank match {
-			case "Top Dogs" =>
-				rankText = "over 1000"
-				emoji = ":dog:"
-			case "Mains" =>
-				rankText = "under 1000"
-				emoji = ":100:"
-			case "Farmers" =>
-				rankText = "under 600"
-				emoji = ":farmer:"
-			case "Makers" =>
-				rankText = "under 300"
-				emoji = ":wheelchair:"
+			case "Knights" =>
+				emoji = ":shield:"
+			case "Druids" =>
+				emoji = ":snowflake:"
+			case "Paladins" =>
+				emoji = ":bow_and_arrow:"
+			case "Sorcerers" =>
+				emoji = ":fire:"
 		}
 
 		val fieldValue = rankMessages match {
-			case Nil => List(s"Nobody $rankText has gained any levels yet.")
+			case Nil => List(s"No $rank have gained any levels yet.")
 			case messages => messages
 		}
 
