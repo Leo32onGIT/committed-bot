@@ -102,14 +102,6 @@ object EventCommand extends StrictLogging with Command {
   private def rankMessage(c: CharData): String = {
     val levels = if (c.gained == 1) "level" else "levels"
 		var spacer = ":black_small_square:"
-		var medal = ""
-		val medals = zipWithIndex(c)
-		if (!(medals.isEmpty)) {
-			medals.map {
-				case (winner, index) =>
-				medal = if (index == 0) " :first_place:" else if (index == 1) " :second_place:" else if (index == 2) " :third_place:" else ""
-			}
-		}
 
 		c.vocation match {
 			case "Sorcerer" =>
@@ -129,7 +121,7 @@ object EventCommand extends StrictLogging with Command {
 			case "Elite Knight" =>
 				spacer = ":shield:"
 		}
-    s"$spacer **${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})$medal"
+    s"$spacer **${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
   }
 
 }
