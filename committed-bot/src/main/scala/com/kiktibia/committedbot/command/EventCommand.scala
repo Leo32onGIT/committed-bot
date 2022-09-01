@@ -90,14 +90,14 @@ object EventCommand extends StrictLogging with Command {
 			case messages => messages
 		}
 
-		val a = fieldValue.zipWithIndex.map{ case (element, index) => {
+		var a = fieldValue.zipWithIndex.map{ case (element, index) => {
 			if (index == 0){
 				element = ":first_place:" + element
 				}
 			}
 		}
 
-		val testData = a.values.toList()
+		val testData = a.toList
 
 		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", testData, false)
 	}
