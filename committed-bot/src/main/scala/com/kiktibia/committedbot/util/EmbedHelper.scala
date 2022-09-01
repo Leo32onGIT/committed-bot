@@ -9,7 +9,7 @@ object EmbedHelper extends StrictLogging {
   def addMultiFields(embed: EmbedBuilder, fieldName: String, values: List[String], inline: Boolean): Unit = {
     var name = fieldName
     var field = ""
-    values.foreach { (v, i) =>
+    values.foreach { v =>
       val currentField = field + "\n" + v
       if (currentField.length <= 1024) { // don't add field yet, there is still room
         field = currentField
