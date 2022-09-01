@@ -85,21 +85,6 @@ object EventCommand extends StrictLogging with Command {
 				emoji = ":farmer:"
 		}
 
-		val medalsIndex = rankMessages.zipWithIndex
-		if (!(medalsIndex.isEmpty)) {
-			if (medalsIndex.length > 4) {
-				medalsIndex.map { case (winner, index) =>
-					if (index == 0) {
-						emoji = ":first_place:"
-					} else if (index == 1) {
-						emoji = ":first_place:"
-					} else if (index == 2) {
-						emoji = ":third_place:"
-					}
-				}
-			}
-		}
-
 		val fieldValue = rankMessages match {
 			case Nil => List(s"No ${rank.toLowerCase()} have gained any levels yet.")
 			case messages => messages
