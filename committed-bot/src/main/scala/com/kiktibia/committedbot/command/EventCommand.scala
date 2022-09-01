@@ -90,15 +90,7 @@ object EventCommand extends StrictLogging with Command {
 			case messages => messages
 		}
 
-		val fieldwithIndex = fieldValue.zipWithIndex.foreach{ case (e, i) =>
-			if (i == 0) {
-				e = s":first_place: $e"
-			} else {
-				e = s":black_small_square: $e"
-			}
-		}
-
-		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldwithIndex, false)
+		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldValue, false)
 	}
 
   private def ranksAsChoices() = {
