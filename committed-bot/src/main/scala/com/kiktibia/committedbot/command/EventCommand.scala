@@ -90,11 +90,12 @@ object EventCommand extends StrictLogging with Command {
 			case messages => messages
 		}
 
-		val a = fieldValue.zipWithIndex.map((element, index) => {
+		val a = fieldValue.zipWithIndex.map{ (element, index) => {
 			if (index == 0){
 				element = ":first_place:" + element
+				}
 			}
-		})
+		}
 
 		val testData = a.values.toList()
 
