@@ -21,4 +21,9 @@ case object Rank {
 		else if (vocation.contains("Sorcerer")) ranks(3)
     else  ranks(4)
   }
+
+	def vocToAll(vocation: String, level: Int): Rank = {
+		if (level < 500) ranks(5)
+		else  ranks(4)
+	}
 }

@@ -29,7 +29,7 @@ object EventCommand extends StrictLogging with Command {
 
     val charData = eventDataToCharData(eventData).filter(_.gained > 0).sortWith(charDataSort)
 
-    var groupedCharData = charData.groupBy { c =>
+    val groupedCharData = charData.groupBy { c =>
       Rank.vocToRank(c.vocation, c.startLevel)
     }.map { case (rank, value) => (rank.name, value) }
 
@@ -41,6 +41,12 @@ object EventCommand extends StrictLogging with Command {
 
   	requestedRank match {
       case Some(rank) =>
+				if (rank == "All"){
+					val groupedCharDataAlt = charData.groupBy { c =>
+			      Rank.vocToAll(c.vocation, c.startLevel)
+			    }.map { case (rank, value) => (rank.name, value) }
+					addRankFieldToEmbed(groupedCharDataAlt, embed, rank, None)
+				}
 				addRankFieldToEmbed(groupedCharData, embed, rank, None)
       case None =>
         ranks.map(_.name).foreach { rank =>
