@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.EmbedBuilder
 object EmbedHelper extends StrictLogging {
 
   // Discord doesn't let you have more than
-  def addMultiFields(embed: EmbedBuilder, fieldName: String, values: List[String, Int], inline: Boolean): Unit = {
+  def addMultiFields(embed: EmbedBuilder, fieldName: String, values: List[String], inline: Boolean): Unit = {
     var name = fieldName
     var field = ""
     values.foreach { (v, i) =>
