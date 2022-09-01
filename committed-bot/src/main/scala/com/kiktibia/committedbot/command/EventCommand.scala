@@ -103,7 +103,7 @@ object EventCommand extends StrictLogging with Command {
     val levels = if (c.gained == 1) "level" else "levels"
 		var spacer = ":black_small_square:"
 		var medal = ""
-		val medals = c.zipWithIndex
+		val medals = zipWithIndex(c)
 		if (!(medals.isEmpty)) {
 			medals.map {
 				case (winner, index) =>
