@@ -45,9 +45,7 @@ object EventCommand extends StrictLogging with Command {
 					val groupedCharDataAlt = charData.groupBy { c =>
 			      Rank.vocToAll(c.vocation, c.startLevel)
 			    }.map { case (rank, value) => (rank.name, value) }
-					if (rank != "Makers"){
-						addRankFieldToEmbed(groupedCharDataAlt, embed, rank, None)
-					}
+					addRankFieldToEmbed(groupedCharDataAlt, embed, rank, None)
 				} else {
 					addRankFieldToEmbed(groupedCharData, embed, rank, None)
 				}

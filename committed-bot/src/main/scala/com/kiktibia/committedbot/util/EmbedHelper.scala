@@ -16,7 +16,6 @@ object EmbedHelper extends StrictLogging {
       }
       else { // it's full, add the field
         embed.addField(name, field, inline)
-        name = ""
         field = v
       }
     }
