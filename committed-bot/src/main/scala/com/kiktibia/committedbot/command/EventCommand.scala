@@ -85,19 +85,19 @@ object EventCommand extends StrictLogging with Command {
 				emoji = ":farmer:"
 		}
 
-		var fieldValue = rankMessages match {
+		val fieldValue = rankMessages match {
 			case Nil => List(s"No ${rank.toLowerCase()} have gained any levels yet.")
 			case messages => messages
 		}
 
-		var a = fieldValue.zipWithIndex.map{ case (element, index) => {
+		var a = fieldValue.zipWithIndex.foreach { case (element, index) => {
 			if (index == 0){
 				element = ":first_place:" + element
 				}
 			}
 		}
 
-		var testData = a.toList
+		val testData = a.toList
 
 		EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", testData, false)
 	}
