@@ -20,7 +20,7 @@ class BotListener extends ListenerAdapter {
 
   private def handleEvent(event: SlashCommandInteractionEvent): Unit = {
     val embed = EventCommand.handleEvent(event)
-    event.getHook().editReply(embed).queue()
+    event.getHook().editOriginal(embed).queue()
   }
 
 	private def handleFinishEvent(event: SlashCommandInteractionEvent): Unit = {
