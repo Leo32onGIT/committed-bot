@@ -10,7 +10,6 @@ class BotListener extends ListenerAdapter {
   override def onSlashCommandInteraction(event: SlashCommandInteractionEvent): Unit = {
     event.getName match {
       case "levels" =>
-				event.deferReply().queue()
         handleEvent(event)
 			case "winners" =>
 	        handleFinishEvent(event)
@@ -19,8 +18,9 @@ class BotListener extends ListenerAdapter {
   }
 
   private def handleEvent(event: SlashCommandInteractionEvent): Unit = {
+		event.deferReply().queue()
     val embed = EventCommand.handleEvent(event)
-    event.getHook().editOriginal(embed).queue()
+    event.getHook().editOriginalEmbeds(embed).queue()
   }
 
 	private def handleFinishEvent(event: SlashCommandInteractionEvent): Unit = {
