@@ -46,8 +46,9 @@ object EventCommand extends StrictLogging with Command {
 			      Rank.vocToAll(c.vocation, c.startLevel)
 			    }.map { case (rank, value) => (rank.name, value) }
 					addRankFieldToEmbed(groupedCharDataAlt, embed, rank, None)
+				} else {
+					addRankFieldToEmbed(groupedCharData, embed, rank, None)
 				}
-				addRankFieldToEmbed(groupedCharData, embed, rank, None)
       case None =>
         ranks.map(_.name).foreach { rank =>
 					if (rank != "All" && rank != "Makers"){
