@@ -14,10 +14,6 @@ object EmbedHelper extends StrictLogging {
       if (currentField.length <= 1024) { // don't add field yet, there is still room
         field = currentField
       }
-      else { // it's full, add the field
-        embed.addField(name, field, inline)
-        field = v
-      }
     }
     embed.addField(name, field, inline)
     logger.info(s"Embed length: ${embed.length()}")
