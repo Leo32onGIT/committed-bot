@@ -95,10 +95,16 @@ object EventCommand extends StrictLogging with Command {
 
 		if (fieldValue.length > 1) {
 			fieldValue.zipWithIndex.map{ case (v,i) =>
-				if (i == 0){
+				if (i == 0) {
 					medals += s":first_place: $v"
+				} else if (i == 1) {
+					medals += s":second_place: $v"
+				} else if (i == 2) {
+					medals += s":third_place: $v"
+				} else {
+					medals += s":second_place: $v"
 				}
-				medals += v
+				medals += s":black_small_square: $v"
 			}
 			EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", medals.toList, false)
 		} else {
