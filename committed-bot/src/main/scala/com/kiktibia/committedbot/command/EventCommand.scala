@@ -102,9 +102,8 @@ object EventCommand extends StrictLogging with Command {
 				} else if (i == 2) {
 					medals += s":third_place: $v"
 				} else {
-					medals += s":second_place: $v"
+					medals += s":black_small_square: $v"
 				}
-				medals += s":black_small_square: $v"
 			}
 			EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", medals.toList, false)
 		} else {
