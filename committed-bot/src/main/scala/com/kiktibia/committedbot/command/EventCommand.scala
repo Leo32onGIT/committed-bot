@@ -94,7 +94,7 @@ object EventCommand extends StrictLogging with Command {
 		// add medals
 		var medals = new ListBuffer[String]()
 		if (fieldValue.length > 1) { // only if playerdata present
-			fieldValue.view.zipWithIndex.map{ case (v,i) => // add index
+			fieldValue.zipWithIndex.map{ case (v,i) => // add index
 				if (i == 0) {
 					medals += s":first_place: $v"
 				} else if (i == 1) {
