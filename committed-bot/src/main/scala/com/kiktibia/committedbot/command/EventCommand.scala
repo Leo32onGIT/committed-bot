@@ -86,27 +86,29 @@ object EventCommand extends StrictLogging with Command {
 				emoji = ":farmer:"
 		}
 
-		var medals = new ListBuffer[String]()
-
 		val fieldValue = rankMessages match {
 			case Nil => List(s"No ${rank.toLowerCase()} have gained any levels yet.")
 			case messages => messages
 		}
 
-		if (fieldValue.length > 1) {
-			fieldValue.zipWithIndex.map{ case (v,i) =>
-				if (i == 0) {
+		// add medals
+		var medals = new ListBuffer[String]()
+		if (fieldValue.length > 1) { // only if playerdata present
+			fieldValue.view.zipWithIndex.map{ case (v,i) => // add index
+				if (i == 0)
 					medals += s":first_place: $v"
 				} else if (i == 1) {
 					medals += s":second_place: $v"
 				} else if (i == 2) {
 					medals += s":third_place: $v"
-				} else {
+				} else { // 4th, 5th etc
 					medals += s":black_small_square: $v"
 				}
 			}
+			// send new list
 			EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", medals.toList, false)
 		} else {
+			// no player data present
 			EmbedHelper.addMultiFields(embed, s"$emoji $rank $emoji", fieldValue, false)
 		}
 	}
