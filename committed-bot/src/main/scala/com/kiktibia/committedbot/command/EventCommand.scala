@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.interactions.commands.build.{Commands, OptionData, Sl
 import Rank.ranks
 
 import scala.jdk.CollectionConverters._
+import scala.collection.mutable.ListBuffer
 
 object EventCommand extends StrictLogging with Command {
 
