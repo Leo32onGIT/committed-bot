@@ -27,7 +27,7 @@ def update_files(levels):
     for dat_file in dat_files:
         with open(dat_file) as f:
             lines = f.read().splitlines()
-        lines.reverse()
+            lines.reverse()
 
         with dat_file.open('a') as f:
             for level in levels:
@@ -41,8 +41,7 @@ def update_files(levels):
                     next_line = f'{date_time},{name},{current_level},{vocation}'
                     print(next_line)
                     f.write(f'{next_line}\n')
-        f.close()
-
+    dat_file.close()
 
 def get_level(guild_char, world_chars):
     # We check levels on the world list because the guild level is only updated when you log off
