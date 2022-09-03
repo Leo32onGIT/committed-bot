@@ -41,7 +41,6 @@ def update_files(levels):
                     next_line = f'{date_time},{name},{current_level},{vocation}'
                     print(next_line)
                     f.write(f'{next_line}\n')
-        f.close()
 
 def get_level(guild_char, world_chars):
     # We check levels on the world list because the guild level is only updated when you log off
