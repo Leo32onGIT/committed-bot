@@ -31,7 +31,7 @@ def update_files(levels):
 
         with dat_file.open('a') as f:
             for level in levels:
-                previous_level = next((i for i in lines if i.split(',')[1] == level['name']), None, None)
+                previous_level = next((i for i in lines if i.split(',')[1] == level['name']), None)
                 current_level = level['level']
                 if (not previous_level) or \
                     (int(previous_level.split(',')[2]) != current_level
