@@ -61,7 +61,7 @@ object EventCommand extends StrictLogging with Command {
     }
 
     val fieldValue = rankMessages match {
-      case Nil => List("Nobody has gained any levels yet.")
+      case Nil => List(":black_small_square: Nobody has gained any levels yet.")
       case messages => messages
     }
 		rank match {
