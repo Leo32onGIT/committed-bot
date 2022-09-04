@@ -89,7 +89,7 @@ object EventCommand extends StrictLogging with Command {
 
   private def rankMessage(c: CharData): String = {
     val levels = if (c.gained == 1) "level" else "levels"
-    s"• **${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
+    s":black_small_square: **${c.name}**: ${c.gained} $levels (${c.startLevel} to ${c.endLevel})"
   }
 
 }
