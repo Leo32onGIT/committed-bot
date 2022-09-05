@@ -45,7 +45,7 @@ object EventCommand extends StrictLogging with Command {
       case None =>
         ranks.map(_.name).foreach { rank =>
           addRankFieldToEmbed(groupedCharData, embed, rank, Some(5))
-					embed.setThumbnail("https://cdn.discordapp.com/icons/839339600102948914/10fe4ed209cea3c1e99c791261e3d930.webp")
+					embed.setThumbnail("https://cdn.discordapp.com/icons/839339600102948914/a87235c7840c6b3488b86ca2b5be6a61.webp")
         }
     }
     embed.build()
