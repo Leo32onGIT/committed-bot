@@ -61,7 +61,7 @@ def enough_time(previous_time, current_time):
 
 
 def get_data():
-    world_url = 'https://api.tibiadata.com/v3/world/Marbera'
+    world_url = 'https://api.tibiadata.com/v3/world/Yovera'
     guild_url = 'https://api.tibiadata.com/v3/guild/Committed'
 
     world_json = requests.get(world_url).json()
